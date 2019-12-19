@@ -11,7 +11,7 @@ public class CommonGrpcClientProperties {
      */
     private boolean enabled;
 
-    private int timeout = 10000;
+    private int timeout = 30000;
 
     private int retry = 3;
 

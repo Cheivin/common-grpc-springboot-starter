@@ -80,7 +80,7 @@ public class CommonGrpcServiceScannerRegistrar implements BeanFactoryAware, Impo
             basePackages = new String[]{importingClassMetadata.getClassName().substring(0, importingClassMetadata.getClassName().lastIndexOf('.'))};
         }
 
-        log.info("packages:{}",basePackages);
+        log.info("common grpc scan packages:{}",basePackages);
 
         // 遍历扫描包
         Set<BeanDefinition> beanDefinitionSet = new HashSet<>();

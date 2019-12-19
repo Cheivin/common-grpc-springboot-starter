@@ -15,7 +15,7 @@ public class CommonGrpcServerProperties {
      */
     private int port = 29999;
 
-    private int timeout = 10000;
+    private int timeout = 30000;
 
     public int getTimeout() {
         return timeout;
