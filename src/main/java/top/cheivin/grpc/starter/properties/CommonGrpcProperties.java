@@ -15,8 +15,10 @@ public class CommonGrpcProperties {
      * 注册发现中心地址
      */
     private String host = "localhost";
-
-    private String[] basePackages;
+    /**
+     * 扫描包
+     */
+    //private String[] basePackages;
     /**
      * 服务信息
      */
@@ -41,6 +43,7 @@ public class CommonGrpcProperties {
     public void setServer(CommonGrpcServerProperties server) {
         this.server = server;
     }
+/*
 
     public String[] getBasePackages() {
         return basePackages;
@@ -49,6 +52,7 @@ public class CommonGrpcProperties {
     public void setBasePackages(String[] basePackages) {
         this.basePackages = basePackages;
     }
+*/
 
     public CommonGrpcClientProperties getClient() {
         return client;
