@@ -1,5 +1,7 @@
 package top.cheivin.grpc.starter.properties;
 
+import top.cheivin.grpc.handle.DataFormat;
+
 /**
  * 客户端配置
  * user:cheivin
@@ -11,11 +13,25 @@ public class CommonGrpcClientProperties {
      */
     private boolean enabled;
 
+    /**
+     * 超时时间
+     */
     private int timeout = 30000;
 
+    /**
+     * 默认重试次数
+     */
     private int retry = 3;
 
+    /**
+     * 负载均衡类型
+     */
     private int loadBalanceType;
+
+    /**
+     * 数据序列化方式
+     */
+    private DataFormat dataFormat = DataFormat.JAVA_BYTES;
 
     public boolean isEnabled() {
         return enabled;
@@ -47,5 +63,13 @@ public class CommonGrpcClientProperties {
 
     public void setLoadBalanceType(int loadBalanceType) {
         this.loadBalanceType = loadBalanceType;
+    }
+
+    public DataFormat getDataFormat() {
+        return dataFormat;
+    }
+
+    public void setDataFormat(DataFormat dataFormat) {
+        this.dataFormat = dataFormat;
     }
 }

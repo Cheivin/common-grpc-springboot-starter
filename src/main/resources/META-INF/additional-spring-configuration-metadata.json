@@ -24,6 +24,11 @@
       "name": "common-grpc.client.loadBalanceType",
       "type": "java.lang.String",
       "description": "负载均衡策略 0:轮询 1:随机 2:hash 3:平滑权重轮询 默认0."
+    },
+    {
+      "name": "common-grpc.client.dataFormat",
+      "type": "top.cheivin.grpc.handle.DataFormat",
+      "description": "数据序列化方式 JAVA_BYTES:java字节集 JSON:json序列化 XML:xml序列化 默认JAVA_BYTES."
     }
   ]
 }

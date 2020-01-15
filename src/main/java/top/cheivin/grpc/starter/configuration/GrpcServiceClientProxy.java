@@ -7,7 +7,6 @@ import org.springframework.cglib.proxy.InvocationHandler;
 import top.cheivin.grpc.GrpcClient;
 import top.cheivin.grpc.annotation.GrpcService;
 import top.cheivin.grpc.core.GrpcRequest;
-import top.cheivin.grpc.core.GrpcResponse;
 import top.cheivin.grpc.exception.InvokeException;
 
 import java.lang.reflect.Method;
@@ -47,9 +46,7 @@ public class GrpcServiceClientProxy<T> implements InvocationHandler {
         if (client == null) {
             setClient();
         }
-        GrpcResponse response = client.invoke(request);
-        log.info("response:{}", response);
-        return response.getResult();
+        return client.invoke(request, method.getReturnType());
     }
 
     // 缓存client

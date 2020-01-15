@@ -13,9 +13,7 @@ import top.cheivin.grpc.core.Discover;
 import top.cheivin.grpc.core.Registry;
 import top.cheivin.grpc.core.ServiceInfoManage;
 import top.cheivin.grpc.handle.Caller;
-import top.cheivin.grpc.handle.DefaultCaller;
-import top.cheivin.grpc.handle.DefaultInvoker;
-import top.cheivin.grpc.handle.Invoker;
+import top.cheivin.grpc.handle.caller.DefaultCaller;
 import top.cheivin.grpc.starter.SpringServiceInfoManage;
 import top.cheivin.grpc.starter.properties.CommonGrpcProperties;
 import top.cheivin.grpc.zookeeper.ZkDiscover;
@@ -54,14 +52,6 @@ public class CommonGrpcAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     @ConditionalOnProperty(prefix = CommonGrpcProperties.PREFIX + ".server", name = "enabled", havingValue = "true")
-    public Invoker invoker() {
-        log.info("common grpc config server: Invoker");
-        return new DefaultInvoker();
-    }
-
-    @Bean
-    @ConditionalOnMissingBean
-    @ConditionalOnProperty(prefix = CommonGrpcProperties.PREFIX + ".server", name = "enabled", havingValue = "true")
     public GrpcServer grpcServer(Registry registry, ServiceInfoManage serviceInfoManage) {
         return GrpcServer.from(registry, serviceInfoManage)
                 .port(properties.getServer().getPort())
@@ -89,7 +79,7 @@ public class CommonGrpcAutoConfiguration {
     @ConditionalOnProperty(prefix = CommonGrpcProperties.PREFIX + ".client", name = "enabled", havingValue = "true")
     public Caller caller() {
         log.info("common grpc config client: Caller");
-        return new DefaultCaller(properties.getClient().getRetry());
+        return new DefaultCaller(properties.getClient().getRetry(), properties.getClient().getDataFormat());
     }
 
     @Bean(initMethod = "start", destroyMethod = "stop")

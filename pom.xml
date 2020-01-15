@@ -11,7 +11,7 @@
 
     <groupId>top.cheivin.grpc</groupId>
     <artifactId>common-grpc-springboot-starter</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <name>common-grpc-springboot-starter</name>
 
     <properties>
@@ -22,7 +22,7 @@
         <dependency>
             <groupId>com.github.cheivin</groupId>
             <artifactId>common-grpc-zookeeper</artifactId>
-            <version>0.0.1</version>
+            <version>0.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
